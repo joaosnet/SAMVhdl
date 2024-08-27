@@ -43,7 +43,7 @@ begin
     );
 
     process(ck)
-        file F: TEXT open READ_MODE is "c:\users\joaod\documents\2024.2\phi\entradas.txt";
+        file F: TEXT open READ_MODE is "c:\users\joaod\documents\2024.2\phi\SAMVhdl\entradas.txt";
         variable L: LINE;
         variable entrada : integer;
     begin
@@ -83,7 +83,7 @@ begin
     end process; 
 
     process(ck)
-        file F: TEXT open WRITE_MODE is "c:\users\joaod\documents\2024.2\phi\saida.txt";
+        file F: TEXT open WRITE_MODE is "c:\users\joaod\documents\2024.2\phi\SAMVhdl\saida.txt";
         variable L: LINE;
     begin
         if rising_edge(ck) then

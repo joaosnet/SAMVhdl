@@ -74,9 +74,13 @@ O sistema usa um somador/subtrator compartilhado para as operações P+B e A-1, 
 
 <img src="screenshots/fsm.png"/>
 
-## Saída
+## Saída no ModelSim
 
 <img src="screenshots/output.png"/>
+
+## Saídas.txt
+
+<img src="screenshots/output.txt.png"/>
 
 ## Como Usar
 
