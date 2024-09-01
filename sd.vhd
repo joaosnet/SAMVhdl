@@ -1,7 +1,7 @@
 -- Module: SD or Multiplication by Successive Additions - SAM
 
 -- Autor: João da Cruz de Nativiade e Silva Neto
--- Date: Sun Aug 25 21:02:22 2024
+-- Date: Sun Sep  1 16:02:59 2024
 
 -- Curso: Engenharia de Computação
 -- Disciplina: Projetos de Hardware e Interfaceamento
@@ -15,6 +15,7 @@ entity sd is
     port (
         Reset: in std_logic;
         ck: in std_logic;
+        inicio: in std_logic;
         entA: in unsigned(3 downto 0);
         entB: in unsigned(3 downto 0);
         mult: out unsigned(3 downto 0);
@@ -49,18 +50,18 @@ begin
 SD_FSM: process (ck, Reset) is
 begin
     if (Reset = '1') then
-        A <= to_unsigned(0, 4);
-        temp <= to_unsigned(0, 4);
         P <= to_unsigned(0, 4);
         pronto <= '0';
-        mult <= to_unsigned(0, 4);
+        temp <= to_unsigned(0, 4);
+        A <= to_unsigned(0, 4);
         B <= to_unsigned(0, 4);
+        mult <= to_unsigned(0, 4);
         state <= IDLE;
     elsif rising_edge(ck) then
         case state is
             when IDLE =>
                 pronto <= '0';
-                if (Reset = '0') then
+                if ((Reset = '0') and (inicio = '1')) then
                     state <= LOAD;
                 end if;
             when LOAD =>
@@ -69,7 +70,7 @@ begin
                 P <= to_unsigned(0, 4);
                 state <= CHECK_B;
             when CHECK_B =>
-                if (B /= 0) then
+                if ((B /= 0) and (A /= 0)) then
                     state <= ADD;
                 else
                     state <= DONE;

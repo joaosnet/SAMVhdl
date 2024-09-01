@@ -17,6 +17,7 @@ architecture test of testbench is
         port(
             Reset: in std_logic;
             ck: in std_logic;
+            inicio: in std_logic;
             entA: in unsigned(3 downto 0);
             entB: in unsigned(3 downto 0);
             mult: out unsigned(3 downto 0);
@@ -26,6 +27,7 @@ architecture test of testbench is
 
     signal Reset: std_logic := '0';
     signal ck: std_logic := '0';
+    signal inicio: std_logic := '0';
     signal entA, entB: unsigned(3 downto 0);
     signal mult: unsigned(3 downto 0);
     signal pronto: std_logic;
@@ -36,6 +38,7 @@ begin
     port map(
         Reset => Reset,
         ck => ck,
+		  inicio => inicio,
         entA => entA,
         entB => entB,
         mult => mult,
@@ -52,9 +55,10 @@ begin
                 Reset <= '1';
             elsif counter = 1 then
                 Reset <= '0';
+                inicio <= '1';
             end if;
 
-            if pronto = '1' then
+            if inicio = '1' then
                 if not endfile(F) then
                     READLINE(F, L);
                     READ(L, entrada);
@@ -64,21 +68,21 @@ begin
                     READ (L, entrada);
                     entB <= unsigned(to_unsigned(entrada, 4));
                 end if;
+					 inicio <= '0';
+					 counter <= counter + 1;
             else
                 counter <= counter + 1;
             end if;
+				
+				if counter = 13 then
+					inicio <= '1';
+				end if;
+				
+				if counter = 23 then
+					inicio <= '1';
+				end if;
             
-            if counter = 2 then
-                if not endfile(F) then
-                    READLINE(F, L);
-                    READ(L, entrada);
-                    entA <= unsigned(to_unsigned(entrada, 4));
-
-                    READLINE(F, L);
-                    READ (L, entrada);
-                    entB <= unsigned(to_unsigned(entrada, 4));
-                end if;
-            end if;
+            
         end if;
     end process; 
 
