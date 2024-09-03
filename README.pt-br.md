@@ -70,9 +70,29 @@ Este algoritmo realiza a multiplicação através de adições repetidas, usando
 
 O sistema usa um somador/subtrator compartilhado para as operações P+B e A-1, realizando cada operação em um ciclo de clock separado para otimização da utilização de recursos.
 
+## Slides
+
+<img src="screenshots/SAM/1.png"/>
+
+<img src="screenshots/SAM/2.png"/>
+
+<img src="screenshots/SAM/3.png"/>
+
+<img src="screenshots/SAM/4.png"/>
+
+<img src="screenshots/SAM/5.png"/>
+
+<img src="screenshots/SAM/6.png"/>
+
+<img src="screenshots/SAM/7.png"/>
+
+<img src="screenshots/SAM/8.png"/>
+
 ## FSM - Máquina de Estados Finitos
 
 <img src="screenshots/fsm.png"/>
+
+<img src="screenshots/fsm_quartus.png"/>
 
 ## Saída no ModelSim
 

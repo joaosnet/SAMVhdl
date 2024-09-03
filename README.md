@@ -75,6 +75,8 @@ The system uses a shared adder/subtractor for P+B and A-1 operations, performing
 
 <img src="screenshots/fsm.png"/>
 
+<img src="screenshots/fsm_quartus.png"/>
+
 ## Output in ModelSim
 
 <img src="screenshots/output.png"/>
