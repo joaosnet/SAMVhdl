@@ -13,6 +13,8 @@
 
 ## Introduction
 
+Apresentação canva https://www.canva.com/design/DAGPoYwRnY0/Eo9uRsZyhV6WcALtKcn-VA/edit?utm_content=DAGPoYwRnY0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ### Digital System Implementation
 
 This project implements a digital system that executes an algorithm using the BO+BC (Operational Block + Control Block) model. The system performs multiplication through repeated addition and subtraction operations.
